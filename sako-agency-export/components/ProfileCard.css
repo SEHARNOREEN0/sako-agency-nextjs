@@ -31,7 +31,7 @@
   --sunpillar-clr-4: var(--sunpillar-4);
   --sunpillar-clr-5: var(--sunpillar-5);
   --sunpillar-clr-6: var(--sunpillar-6);
-  --card-radius: 30px;
+  --card-radius: clamp(10px, 2.5vw, 30px);
 }
 
 .pc-card-wrapper {
@@ -39,19 +39,18 @@
   transform: translate3d(0, 0, 0.1px);
   position: relative;
   touch-action: none;
+  width: 100%;
 }
 
 .pc-behind {
   position: absolute;
-  inset: 0;
+  inset: 10px;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(
-    circle at var(--pointer-x) var(--pointer-y),
-    var(--behind-glow-color) 0%,
-    transparent var(--behind-glow-size)
-  );
-  filter: blur(50px) saturate(1.1);
+  background: radial-gradient(circle at var(--pointer-x) var(--pointer-y),
+      var(--behind-glow-color) 0%,
+      transparent var(--behind-glow-size));
+  filter: blur(30px) saturate(1.1);
   opacity: calc(0.8 * var(--card-opacity));
   transition: opacity 200ms ease;
 }
@@ -62,17 +61,16 @@
 }
 
 .pc-card {
+  width: 100%;
   height: auto;
-  max-height: 540px;
-  min-height: 400px;
+  min-height: 0;
   display: grid;
   aspect-ratio: 0.718;
   border-radius: var(--card-radius);
   position: relative;
   background-blend-mode: color-dodge, normal, normal, normal;
   animation: glow-bg 12s linear infinite;
-  box-shadow: rgba(0, 0, 0, 0.8) calc((var(--pointer-from-left) * 10px) - 3px)
-    calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
+  box-shadow: rgba(0, 0, 0, 0.8) calc((var(--pointer-from-left) * 10px) - 3px) calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
   transition: transform 1s ease;
   transform: translateZ(0) rotateX(0deg) rotateY(0deg);
   background: rgba(10, 9, 8, 0.9);
@@ -93,6 +91,7 @@
 .pc-card-shell {
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .pc-card * {
@@ -125,31 +124,25 @@
   background-size: cover;
   background-position: center;
   background-image:
-    repeating-linear-gradient(
-      0deg,
+    repeating-linear-gradient(0deg,
       var(--sunpillar-clr-1) calc(var(--space) * 1),
       var(--sunpillar-clr-2) calc(var(--space) * 2),
       var(--sunpillar-clr-3) calc(var(--space) * 3),
       var(--sunpillar-clr-4) calc(var(--space) * 4),
       var(--sunpillar-clr-5) calc(var(--space) * 5),
       var(--sunpillar-clr-6) calc(var(--space) * 6),
-      var(--sunpillar-clr-1) calc(var(--space) * 7)
-    ),
-    repeating-linear-gradient(
-      var(--angle),
+      var(--sunpillar-clr-1) calc(var(--space) * 7)),
+    repeating-linear-gradient(var(--angle),
       #141210 0%,
       hsl(45, 10%, 60%) 3.8%,
       hsl(45, 29%, 66%) 4.5%,
       hsl(45, 10%, 60%) 5.2%,
       #141210 10%,
-      #141210 12%
-    ),
-    radial-gradient(
-      farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      #141210 12%),
+    radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y),
       hsla(0, 0%, 0%, 0.1) 12%,
       hsla(0, 0%, 0%, 0.15) 20%,
-      hsla(0, 0%, 0%, 0.25) 120%
-    );
+      hsla(0, 0%, 0%, 0.25) 120%);
   background-position:
     0 var(--background-y),
     var(--background-x) var(--background-y),
@@ -187,15 +180,13 @@
 
 .pc-shine::before {
   background-image:
-    linear-gradient(
-      45deg,
+    linear-gradient(45deg,
       var(--sunpillar-4),
       var(--sunpillar-5),
       var(--sunpillar-6),
       var(--sunpillar-1),
       var(--sunpillar-2),
-      var(--sunpillar-3)
-    ),
+      var(--sunpillar-3)),
     radial-gradient(circle at var(--pointer-x) var(--pointer-y), hsl(0, 0%, 70%) 0%, hsla(0, 0%, 30%, 0.2) 90%),
     var(--grain);
   background-size:
@@ -207,8 +198,7 @@
     center,
     calc(var(--pointer-x) * 0.01) calc(var(--pointer-y) * 0.01);
   background-blend-mode: color-dodge;
-  filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2))
-    saturate(calc(0.5 + var(--pointer-from-center)));
+  filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2)) saturate(calc(0.5 + var(--pointer-from-center)));
   mix-blend-mode: luminosity;
 }
 
@@ -228,11 +218,9 @@
 .pc-glare {
   transform: translate3d(0, 0, 1.1px);
   overflow: hidden;
-  background-image: radial-gradient(
-    farthest-corner circle at var(--pointer-x) var(--pointer-y),
-    hsla(0, 0%, 100%, 0.08) 8%,
-    transparent 45%
-  );
+  background-image: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      hsla(0, 0%, 100%, 0.08) 8%,
+      transparent 45%);
   mix-blend-mode: overlay;
   filter: brightness(0.95) contrast(1.05);
   z-index: 4;
@@ -247,23 +235,23 @@
   opacity: var(--blob-opacity);
   transition: opacity 180ms ease, transform 180ms ease;
   z-index: 10;
-  min-width: 120px;
+  min-width: 60px;
   max-width: 220px;
-  padding: 10px 16px;
+  padding: clamp(4px, 0.8vw, 10px) clamp(8px, 1.2vw, 16px);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(18px);
   color: var(--cream);
   font-family: 'Outfit', sans-serif;
-  font-size: 0.8rem;
+  font-size: clamp(0.5rem, 0.9vw, 0.8rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: center;
   line-height: 1.2;
   white-space: nowrap;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
 }
 
 .pc-card-wrapper:hover .pc-bubble,
@@ -285,8 +273,7 @@
   position: absolute;
   left: 50%;
   transform-origin: 50% 100%;
-  transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0)
-    scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01));
+  transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01));
   bottom: -1px;
   backface-visibility: hidden;
   will-change: transform;
@@ -300,12 +287,12 @@
   z-index: 1;
   backdrop-filter: none;
   pointer-events: none;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 40%);
 }
 
 .pc-user-info {
   position: absolute;
-  --ui-inset: 20px;
+  --ui-inset: clamp(6px, 1.5vw, 20px);
   --ui-radius-bias: 6px;
   bottom: var(--ui-inset);
   left: var(--ui-inset);
@@ -318,19 +305,21 @@
   backdrop-filter: blur(30px);
   border: 1px solid rgba(201, 168, 76, 0.2);
   border-radius: calc(max(0px, var(--card-radius) - var(--ui-inset) + var(--ui-radius-bias)));
-  padding: 12px 14px;
+  padding: clamp(6px, 1vw, 12px) clamp(8px, 1.2vw, 14px);
   pointer-events: auto;
 }
 
 .pc-user-details {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(4px, 0.8vw, 12px);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .pc-mini-avatar {
-  width: 48px;
-  height: 48px;
+  width: clamp(20px, 3.5vw, 48px);
+  height: clamp(20px, 3.5vw, 48px);
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid rgba(201, 168, 76, 0.4);
@@ -348,20 +337,25 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  gap: 6px;
+  gap: clamp(2px, 0.4vw, 6px);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .pc-handle {
   font-family: 'Outfit', sans-serif;
-  font-size: 14px;
+  font-size: clamp(8px, 1.1vw, 14px);
   font-weight: 500;
   color: var(--gold);
   line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pc-status {
   font-family: 'Outfit', sans-serif;
-  font-size: 12px;
+  font-size: clamp(7px, 0.9vw, 12px);
   color: var(--cream-dim);
   line-height: 1;
 }
@@ -369,15 +363,17 @@
 .pc-contact-btn {
   background: transparent;
   border: 1px solid var(--gold);
-  border-radius: 8px;
-  padding: 12px 16px;
+  border-radius: clamp(4px, 0.5vw, 8px);
+  padding: clamp(4px, 0.8vw, 12px) clamp(8px, 1.2vw, 16px);
   font-family: 'Outfit', sans-serif;
-  font-size: 12px;
+  font-size: clamp(7px, 0.9vw, 12px);
   font-weight: 600;
   color: var(--gold);
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pc-contact-btn:hover {
@@ -391,11 +387,9 @@
   overflow: hidden;
   text-align: center;
   position: relative;
-  transform: translate3d(
-    calc(var(--pointer-from-left) * -6px + 3px),
-    calc(var(--pointer-from-top) * -6px + 3px),
-    0.1px
-  );
+  transform: translate3d(calc(var(--pointer-from-left) * -6px + 3px),
+      calc(var(--pointer-from-top) * -6px + 3px),
+      0.1px);
   z-index: 5;
   mix-blend-mode: normal;
 }
@@ -403,7 +397,7 @@
 .pc-details {
   width: 100%;
   position: absolute;
-  top: 3em;
+  top: clamp(0.8em, 2.5vw, 3em);
   display: flex;
   flex-direction: column;
 }
@@ -412,7 +406,7 @@
   font-family: 'Playfair Display', serif;
   font-weight: 400;
   margin: 0;
-  font-size: min(5svh, 2.5em);
+  font-size: clamp(0.85rem, 2.5vw, 2.5em);
   background-image: linear-gradient(to bottom, #fff, var(--gold));
   background-size: 1em 1.5em;
   -webkit-text-fill-color: transparent;
@@ -424,10 +418,10 @@
   font-family: 'Outfit', sans-serif;
   font-weight: 400;
   position: relative;
-  top: 8px;
+  top: clamp(2px, 0.5vw, 8px);
   white-space: nowrap;
-  font-size: 14px;
-  letter-spacing: 0.1em;
+  font-size: clamp(6px, 1vw, 14px);
+  letter-spacing: clamp(0.03em, 0.08vw, 0.1em);
   text-transform: uppercase;
   margin: 0 auto;
   width: min-content;
@@ -462,46 +456,12 @@
 
 @media (max-width: 768px) {
   .pc-card {
-    height: 70svh;
-    max-height: 450px;
+    --card-radius: clamp(12px, 2vw, 20px);
   }
+}
 
-  .pc-details {
-    top: 2em;
-  }
-
-  .pc-details h3 {
-    font-size: min(4svh, 2em);
-  }
-
-  .pc-details p {
-    font-size: 12px;
-  }
-
-  .pc-user-info {
-    --ui-inset: 15px;
-    padding: 10px 12px;
-  }
-
-  .pc-mini-avatar {
-    width: 28px;
-    height: 28px;
-  }
-
-  .pc-user-details {
-    gap: 10px;
-  }
-
-  .pc-handle {
-    font-size: 12px;
-  }
-
-  .pc-status {
-    font-size: 10px;
-  }
-
-  .pc-contact-btn {
-    padding: 6px 12px;
-    font-size: 10px;
+@media (max-width: 480px) {
+  .pc-card {
+    --card-radius: 10px;
   }
 }

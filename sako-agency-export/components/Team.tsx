@@ -97,28 +97,35 @@ export default function Team() {
   };
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="team" 
-      className="relative py-24" 
-      style={{ background: "var(--black-3)" }}
+    <section
+      ref={sectionRef}
+      id="team"
+      className="relative"
+      style={{ background: "var(--black-3)", padding: "clamp(4rem, 8vw, 6rem) 0", overflow: "hidden" }}
     >
-      <div className="container px-6 mx-auto">
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(1.5rem, 4vw, 4rem)" }}>
         {/* Section Header */}
-        <header className="text-center mb-20">
-          <span className="eyebrow block mb-5 text-gold uppercase tracking-widest text-sm">— The People</span>
+        <header className="text-center" style={{ marginBottom: "clamp(3rem, 6vw, 5rem)" }}>
+          <span className="eyebrow" style={{ display: "block", marginBottom: "1.25rem" }}>— The People</span>
           <h2 style={headerStyles.title}>
             Meet the <em style={headerStyles.gradientText}>studio.</em>
           </h2>
-          <p className="max-w-md mx-auto mt-5 text-base leading-relaxed" style={{ color: "var(--cream-dim)" }}>
+          <p style={{ maxWidth: "28rem", margin: "1.25rem auto 0", fontSize: "1rem", lineHeight: 1.6, color: "var(--cream-dim)" }}>
             A small, senior team. No middlemen — direct access to the people building your future.
           </p>
         </header>
 
         {/* Responsive Grid */}
-        <div className="team-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div
+          className="team-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "clamp(0.75rem, 2vw, 2.5rem)"
+          }}
+        >
           {TEAM_DATA.map((member) => (
-            <div key={member.handle} className="team-card-wrapper h-full">
+            <div key={member.handle} className="team-card-wrapper" style={{ width: "100%" }}>
               <ProfileCard
                 name={member.name}
                 title={member.role}
