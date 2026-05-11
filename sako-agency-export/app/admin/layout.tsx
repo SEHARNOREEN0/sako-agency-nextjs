@@ -1,8 +1,34 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { LayoutDashboard, Users, PieChart, Settings, LogOut } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.replace("/admin/login");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return (
+      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#050505", color: "#c9a84c", fontFamily: "'Outfit', sans-serif" }}>
+        Loading...
+      </div>
+    );
+  }
+
+  if (!session) {
+    return null;
+  }
+
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "#050505", color: "#f5f0e8", fontFamily: "'Outfit', sans-serif" }}>
       {/* Sidebar */}
@@ -29,9 +55,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </Link>
         </nav>
 
-        <button style={{ display: "flex", alignItems: "center", gap: "12px", padding: "12px 16px", background: "none", border: "none", color: "rgba(245,240,232,0.6)", fontSize: "14px", fontWeight: 500, cursor: "pointer", marginTop: "auto" }}>
-          <LogOut size={18} /> Sign Out
-        </button>
+        <div style={{ borderTop: "1px solid rgba(201,168,76,0.1)", paddingTop: "16px", marginTop: "auto" }}>
+          {session.user?.email && (
+            <p style={{ fontSize: "12px", color: "rgba(245,240,232,0.4)", marginBottom: "12px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+              {session.user.email}
+            </p>
+          )}
+          <button
+            onClick={() => signOut({ callbackUrl: "/admin/login" })}
+            style={{ display: "flex", alignItems: "center", gap: "12px", padding: "12px 16px", background: "none", border: "none", color: "rgba(245,240,232,0.6)", fontSize: "14px", fontWeight: 500, cursor: "pointer", width: "100%" }}
+          >
+            <LogOut size={18} /> Sign Out
+          </button>
+        </div>
       </aside>
 
       {/* Main content */}

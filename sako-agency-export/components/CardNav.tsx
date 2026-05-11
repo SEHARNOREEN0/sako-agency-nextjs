@@ -3,7 +3,6 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ArrowUpRight } from "lucide-react";
 import "./CardNav.css";
-import ThemeToggle from "./ThemeToggle";
 
 type LinkItem = {
   label: string;
@@ -209,9 +208,8 @@ const CardNav = ({
             <span className="logo-text">SAKO</span>
           </a>
 
-          {/* CTA & Theme Toggle */}
+          {/* CTA */}
           <div className="card-nav-actions flex items-center gap-2 md:gap-4">
-            <ThemeToggle />
             <button
               type="button"
               className="card-nav-cta-button"

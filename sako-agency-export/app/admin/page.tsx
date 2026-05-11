@@ -56,23 +56,23 @@ export default function AdminDashboard() {
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 3vw, 3rem)", fontWeight: 400, color: "var(--cream)", marginBottom: "1vh" }}>
             Overview
           </h1>
-          <p style={{ fontFamily: "'Outfit', sans-serif", color: "var(--cream-dim)", fontSize: "0.9vw", minFontSize: "14px" }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", color: "var(--cream-dim)", fontSize: "clamp(14px, 0.9vw, 18px)" }}>
             Real-time insights and analytics for your agency.
           </p>
         </div>
-        
+
         <div style={{ display: "flex", gap: "1vw" }}>
-          <button style={{ padding: "1.2vh 1.8vw", borderRadius: "100vw", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--cream)", fontFamily: "'Outfit', sans-serif", fontSize: "0.7vw", minFontSize: "11px", fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
+          <button style={{ padding: "1.2vh 1.8vw", borderRadius: "100vw", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--cream)", fontFamily: "'Outfit', sans-serif", fontSize: "clamp(11px, 0.7vw, 14px)", fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
             Export PDF
           </button>
-          <button style={{ padding: "1.2vh 1.8vw", borderRadius: "100vw", background: "var(--gold)", border: "none", color: "var(--black)", fontFamily: "'Outfit', sans-serif", fontSize: "0.7vw", minFontSize: "11px", fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
+          <button style={{ padding: "1.2vh 1.8vw", borderRadius: "100vw", background: "var(--gold)", border: "none", color: "var(--black)", fontFamily: "'Outfit', sans-serif", fontSize: "clamp(11px, 0.7vw, 14px)", fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
             Generate Report
           </button>
         </div>
       </header>
 
       {/* Analytics Grid using MagicBento for premium look */}
-      <MagicBento 
+      <MagicBento
         cards={analyticsData}
         glowColor="201, 168, 76"
         particleCount={8}

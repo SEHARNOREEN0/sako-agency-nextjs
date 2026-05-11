@@ -7,7 +7,7 @@ import ScrollFloat from "@/components/ui/ScrollFloat";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
-const services = ["Web Design & Dev", "UI / UX Design", "SEO & Growth", "Brand & Graphics", "AR Experience", "AI Integration", "Full Studio Retainer"];
+const services = ["Web Design & Dev", "UI / UX Design", "SEO & Growth", "Brand & Graphics", "Conversion Strategy", "AI Integration", "Full Studio Retainer"];
 const budgets = ["$5k – $15k", "$15k – $30k", "$30k – $75k", "$75k+"];
 
 export default function Contact() {
@@ -71,34 +71,36 @@ export default function Contact() {
         {/* Header */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "8vh" }}>
           <span className="eyebrow" style={{ display: "block", marginBottom: "3vh" }}>— Let's Build Something</span>
-          <ScrollFloat
-            animationDuration={1}
-            ease="back.inOut(2)"
-            scrollStart="center bottom+=50%"
-            scrollEnd="bottom bottom-=40%"
-            stagger={0.03}
-            containerClassName="mb-0 max-w-[50vw] mx-auto"
-            textClassName="font-display text-[clamp(2.5rem,6vw,5.5rem)] font-light leading-[1.05]"
-          >
-            Ready to evolve your business?
-          </ScrollFloat>
-          <p style={{ maxWidth: "35vw", margin: "3vh auto 0", fontSize: "clamp(0.9rem, 1.1vw, 1.25rem)", color: "var(--cream-dim)", lineHeight: 1.8 }}>
+          <div style={{ width: "min(94vw, 980px)", margin: "0 auto" }}>
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="mb-0"
+              textClassName="font-display text-[clamp(2.2rem,8.4vw,5.5rem)] font-light leading-[1.05] tracking-[-0.02em]"
+            >
+              Ready to evolve your business?
+            </ScrollFloat>
+          </div>
+          <p style={{ width: "min(92vw, 760px)", margin: "3vh auto 0", fontSize: "clamp(0.95rem, 1.1vw, 1.25rem)", color: "var(--cream-dim)", lineHeight: 1.8 }}>
             We take on 4–6 new projects per quarter. Tell us about yours — we respond within 24 hours.
           </p>
           {/* Availability badge */}
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.8vw", marginTop: "3vh", border: "1px solid rgba(76,201,126,0.25)", background: "rgba(76,201,126,0.05)", padding: "1vh 2vw", borderRadius: "100vw" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "clamp(6px, 0.8vw, 12px)", marginTop: "3vh", border: "1px solid rgba(76,201,126,0.25)", background: "rgba(76,201,126,0.05)", padding: "clamp(8px, 1vh, 12px) clamp(14px, 2vw, 24px)", borderRadius: "100vw" }}>
             <div style={{ width: "0.5vw", height: "0.5vw", minWidth: "6px", minHeight: "6px", borderRadius: "50%", background: "#4cc97e" }} className="animate-pulse-gold" />
-            <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.7vw", minFontSize: "10px", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "#4cc97e" }}>2 Spots Open — Q3 2026</span>
+            <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(10px, 0.7vw, 18px)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "#4cc97e" }}>2 Spots Open — Q3 2026</span>
           </div>
         </div>
 
         {/* Two-col grid */}
-        <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(40vw, 1fr))", gap: "5vw", alignItems: "start" }}>
+        <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "clamp(24px, 5vw, 64px)", alignItems: "start" }}>
           {/* Left — info */}
           <div className="contact-left">
             <div style={{ marginBottom: "6vh" }}>
-              <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "2.5vw", minFontSize: "28px", fontWeight: 400, marginBottom: "2vh" }}>Start the Conversation</h3>
-              <p style={{ fontSize: "0.9vw", minFontSize: "14px", color: "var(--cream-dim)", lineHeight: 1.8 }}>
+              <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(28px, 2.5vw, 48px)", fontWeight: 400, marginBottom: "2vh" }}>Start the Conversation</h3>
+              <p style={{ fontSize: "clamp(14px, 0.9vw, 24px)", color: "var(--cream-dim)", lineHeight: 1.8 }}>
                 Whether you're a startup ready to make noise, or an established brand that needs reinvention — we're built for this.
               </p>
             </div>
@@ -115,8 +117,8 @@ export default function Contact() {
                     <item.icon size={15} color="var(--gold)" />
                   </div>
                   <div>
-                    <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", minFontSize: "9px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.2vh" }}>{item.label}</div>
-                    <div style={{ fontSize: "0.8vw", minFontSize: "13px", color: "var(--cream-dim)" }}>{item.value}</div>
+                    <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 16px)", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.2vh" }}>{item.label}</div>
+                    <div style={{ fontSize: "clamp(13px, 0.8vw, 22px)", color: "var(--cream-dim)" }}>{item.value}</div>
                   </div>
                 </div>
               ))}
@@ -141,22 +143,22 @@ export default function Contact() {
             {sent ? (
               <div style={{ textAlign: "center", padding: "10vh 4vw", border: "1px solid rgba(76,201,126,0.2)", borderRadius: "4px", background: "rgba(76,201,126,0.03)" }}>
                 <div style={{ fontFamily: "'Cormorant',serif", fontSize: "5vw", color: "#4cc97e", marginBottom: "3vh" }}>✓</div>
-                <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "2.5vw", minFontSize: "28px", fontWeight: 400, marginBottom: "2vh" }}>Message received.</h3>
-                <p style={{ fontSize: "0.9vw", color: "var(--cream-dim)", lineHeight: 1.8 }}>We'll review your project and respond within 24 hours. Get excited.</p>
+                <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(28px, 2.5vw, 48px)", fontWeight: 400, marginBottom: "2vh" }}>Message received.</h3>
+                <p style={{ fontSize: "clamp(14px, 0.9vw, 18px)", color: "var(--cream-dim)", lineHeight: 1.8 }}>We'll review your project and respond within 24 hours. Get excited.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
                 {/* Name + Company row */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1vw" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "clamp(12px, 1vw, 18px)" }}>
                   {(["name", "company"] as const).map(f => (
                     <div key={f}>
-                      <label style={{ display: "block", fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", minFontSize: "9px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.6)", marginBottom: "1vh" }}>
+                      <label style={{ display: "block", fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 16px)", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.6)", marginBottom: "1vh" }}>
                         {f === "name" ? "Full Name *" : "Company"}
                       </label>
                       <input
                         name={f} value={form[f]} onChange={handleChange}
                         required={f === "name"} placeholder={f === "name" ? "Your name" : "Company name"}
-                        style={{...inputStyle, padding: "2.5vh 1.5vw"}}
+                        style={{ ...inputStyle, padding: "clamp(14px, 2.5vh, 20px) clamp(12px, 1.5vw, 16px)" }}
                         onFocus={e => { e.target.style.borderColor = "rgba(201,168,76,0.5)"; e.target.style.background = "rgba(201,168,76,0.03)"; }}
                         onBlur={e => { e.target.style.borderColor = "rgba(201,168,76,0.15)"; e.target.style.background = "rgba(255,255,255,0.03)"; }}
                       />
@@ -166,23 +168,23 @@ export default function Contact() {
 
                 {/* Email */}
                 <div>
-                  <label style={{ display: "block", fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", minFontSize: "9px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.6)", marginBottom: "1vh" }}>Email *</label>
-                  <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder="your@email.com" style={{...inputStyle, padding: "2.5vh 1.5vw"}}
+                  <label style={{ display: "block", fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 16px)", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.6)", marginBottom: "1vh" }}>Email *</label>
+                  <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder="your@email.com" style={{ ...inputStyle, padding: "clamp(14px, 2.5vh, 20px) clamp(12px, 1.5vw, 16px)" }}
                     onFocus={e => { e.target.style.borderColor = "rgba(201,168,76,0.5)"; e.target.style.background = "rgba(201,168,76,0.03)"; }}
                     onBlur={e => { e.target.style.borderColor = "rgba(201,168,76,0.15)"; e.target.style.background = "rgba(255,255,255,0.03)"; }} />
                 </div>
 
                 {/* Service + Budget row */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1vw" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "clamp(12px, 1vw, 18px)" }}>
                   {([
                     { name: "service", label: "Service *", options: services, placeholder: "Select service" },
                     { name: "budget", label: "Budget", options: budgets, placeholder: "Select budget" },
                   ] as const).map(f => (
                     <div key={f.name}>
-                      <label style={{ display: "block", fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", minFontSize: "9px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.6)", marginBottom: "1vh" }}>{f.label}</label>
+                      <label style={{ display: "block", fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 16px)", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.6)", marginBottom: "1vh" }}>{f.label}</label>
                       <select name={f.name} value={form[f.name as "service" | "budget"]} onChange={handleChange}
                         required={f.name === "service"}
-                        style={{ ...inputStyle, padding: "2.5vh 1.5vw", cursor: "none", appearance: "none" }}
+                        style={{ ...inputStyle, padding: "clamp(14px, 2.5vh, 20px) clamp(12px, 1.5vw, 16px)", cursor: "none", appearance: "none" }}
                         onFocus={e => { e.target.style.borderColor = "rgba(201,168,76,0.5)"; }}
                         onBlur={e => { e.target.style.borderColor = "rgba(201,168,76,0.15)"; }}>
                         <option value="" disabled style={{ background: "var(--black-2)" }}>{f.placeholder}</option>
@@ -194,10 +196,10 @@ export default function Contact() {
 
                 {/* Message */}
                 <div>
-                  <label style={{ display: "block", fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", minFontSize: "9px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.6)", marginBottom: "1vh" }}>Tell us about your project *</label>
+                  <label style={{ display: "block", fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 16px)", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.6)", marginBottom: "1vh" }}>Tell us about your project *</label>
                   <textarea name="message" value={form.message} onChange={handleChange} required rows={4}
                     placeholder="What are you building? What's the goal? Any challenges?"
-                    style={{ ...inputStyle, padding: "2.5vh 1.5vw", resize: "vertical", minHeight: "15vh" }}
+                    style={{ ...inputStyle, padding: "clamp(14px, 2.5vh, 20px) clamp(12px, 1.5vw, 16px)", resize: "vertical", minHeight: "15vh" }}
                     onFocus={e => { e.target.style.borderColor = "rgba(201,168,76,0.5)"; e.target.style.background = "rgba(201,168,76,0.03)"; }}
                     onBlur={e => { e.target.style.borderColor = "rgba(201,168,76,0.15)"; e.target.style.background = "rgba(255,255,255,0.03)"; }} />
                 </div>
@@ -205,8 +207,8 @@ export default function Contact() {
                 {/* Submit */}
                 <button type="submit" disabled={sending}
                   data-cursor="magnetic"
-                  style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.8vw", background: sending ? "rgba(201,168,76,0.5)" : "var(--gold)", color: "var(--black)", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "0.7vw", minFontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", padding: "2.5vh 3vw", borderRadius: "4px", border: "none", cursor: "none", transition: "transform 0.3s,box-shadow 0.3s,background 0.3s", marginTop: "1vh" }}
-                  onMouseEnter={e => { if (!sending) { e.currentTarget.style.transform = "scale(1.02)"; e.currentTarget.style.boxShadow = "0 20px 50px -10px rgba(201,168,76,0.4)"; }}}
+                  style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.8vw", background: sending ? "rgba(201,168,76,0.5)" : "var(--gold)", color: "var(--black)", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "clamp(11px, 0.7vw, 18px)", letterSpacing: "0.15em", textTransform: "uppercase", padding: "2.5vh 3vw", borderRadius: "4px", border: "none", cursor: "none", transition: "transform 0.3s,box-shadow 0.3s,background 0.3s", marginTop: "1vh" }}
+                  onMouseEnter={e => { if (!sending) { e.currentTarget.style.transform = "scale(1.02)"; e.currentTarget.style.boxShadow = "0 20px 50px -10px rgba(201,168,76,0.4)"; } }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "none"; }}>
                   {sending ? (
                     <span>Sending...</span>
@@ -215,7 +217,7 @@ export default function Contact() {
                   )}
                 </button>
 
-                <p style={{ textAlign: "center", fontSize: "0.7vw", minFontSize: "11px", color: "rgba(245,240,232,0.25)", marginTop: "1vh" }}>
+                <p style={{ textAlign: "center", fontSize: "clamp(11px, 0.7vw, 18px)", color: "rgba(245,240,232,0.25)", marginTop: "1vh" }}>
                   No spam. No pressure. Just a conversation.
                 </p>
               </form>

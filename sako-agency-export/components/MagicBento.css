@@ -6,7 +6,7 @@
 
 .bento-card-grid {
   display: grid;
-  gap: 1.2vw;
+  gap: clamp(12px, 1.2vw, 18px);
   width: 100%;
 }
 
@@ -16,11 +16,11 @@
   justify-content: space-between;
   position: relative;
   aspect-ratio: auto;
-  min-height: 35vh;
+  min-height: clamp(220px, 32vh, 420px);
   width: 100%;
   max-width: 100%;
-  padding: 4vh 2.5vw;
-  border-radius: 1.5vw;
+  padding: clamp(18px, 3vh, 32px) clamp(14px, 2.2vw, 28px);
+  border-radius: clamp(14px, 1.5vw, 24px);
   border: 1px solid var(--bento-border);
   background: var(--bento-bg);
   font-weight: 300;
@@ -48,10 +48,10 @@
 }
 
 .magic-bento-card__header {
-  gap: 0.8vw;
+  gap: clamp(8px, 0.8vw, 12px);
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 3vh;
+  margin-bottom: clamp(10px, 2vh, 20px);
 }
 
 .magic-bento-card__content {
@@ -60,8 +60,7 @@
 
 .magic-bento-card__label {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.7vw;
-  min-font-size: 10px;
+  font-size: clamp(10px, 0.7vw, 12px);
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -79,8 +78,7 @@
 
 .magic-bento-card__description {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.9vw;
-  min-font-size: 13px;
+  font-size: clamp(13px, 0.9vw, 16px);
   line-height: 1.6;
   color: var(--cream-dim);
   opacity: 0.9;
@@ -111,7 +109,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .bento-card-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -126,18 +124,27 @@
   }
 }
 
+@media (max-width: 767px) {
+  .magic-bento-card {
+    min-height: 220px;
+    padding: 18px 14px;
+  }
+
+  .magic-bento-card__label {
+    letter-spacing: 0.14em;
+  }
+}
+
 /* Border glow effect */
 .magic-bento-card--border-glow::after {
   content: '';
   position: absolute;
   inset: 0;
   padding: 1px;
-  background: radial-gradient(
-    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-    rgba(201, 168, 76, calc(var(--glow-intensity) * 0.8)) 0%,
-    rgba(201, 168, 76, calc(var(--glow-intensity) * 0.2)) 40%,
-    transparent 70%
-  );
+  background: radial-gradient(var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+      rgba(201, 168, 76, calc(var(--glow-intensity) * 0.8)) 0%,
+      rgba(201, 168, 76, calc(var(--glow-intensity) * 0.2)) 40%,
+      transparent 70%);
   border-radius: inherit;
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,

@@ -60,27 +60,27 @@ export default function Blog() {
           {posts.map((post, i) => (
             <div key={i} className="blog-card group" style={{ cursor: "none" }}>
               <div style={{ position: "relative", overflow: "hidden", borderRadius: "1.5vw", aspectRatio: "16/10", marginBottom: "3vh", border: "1px solid rgba(201,168,76,0.06)", transition: "border-color 0.4s" }} className="group-hover:border-[rgba(201,168,76,0.2)]">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
+                <img
+                  src={post.image}
+                  alt={post.title}
                   style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)" }}
                   className="group-hover:scale-105"
                 />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)", opacity: 0.6, transition: "opacity 0.4s" }} />
               </div>
-              
+
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5vh" }}>
                 <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.7vw", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.8 }}>{post.category}</span>
                 <span style={{ fontSize: "0.8vw", color: "rgba(245,240,232,0.4)", fontFamily: "'Outfit', sans-serif" }}>{post.date}</span>
               </div>
-              
-              <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "2vw", minFontSize: "20px", fontWeight: 400, color: "var(--cream)", lineHeight: 1.2, marginBottom: "2.5vh", transition: "color 0.4s" }} className="group-hover:text-[var(--gold)]">
+
+              <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(20px, 2vw, 36px)", fontWeight: 400, color: "var(--cream)", lineHeight: 1.2, marginBottom: "2.5vh", transition: "color 0.4s" }} className="group-hover:text-[var(--gold)]">
                 {post.title}
               </h3>
-              
-              <button 
+
+              <button
                 data-cursor="magnetic"
-                style={{ display: "flex", alignItems: "center", gap: "0.8vw", background: "none", border: "none", color: "var(--cream-dim)", fontSize: "0.7vw", fontFamily: "'Syne',sans-serif", textTransform: "uppercase", letterSpacing: "0.15em", cursor: "none", transition: "color 0.3s" }} 
+                style={{ display: "flex", alignItems: "center", gap: "0.8vw", background: "none", border: "none", color: "var(--cream-dim)", fontSize: "0.7vw", fontFamily: "'Syne',sans-serif", textTransform: "uppercase", letterSpacing: "0.15em", cursor: "none", transition: "color 0.3s" }}
                 className="group-hover:text-white"
               >
                 Read Article <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -91,7 +91,7 @@ export default function Blog() {
 
         {/* View All */}
         <div style={{ marginTop: "8vh", textAlign: "center" }}>
-          <button 
+          <button
             data-cursor="magnetic"
             style={{ display: "inline-flex", alignItems: "center", gap: "0.8vw", background: "transparent", color: "var(--gold)", fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "0.7vw", letterSpacing: "0.15em", textTransform: "uppercase", padding: "2vh 2.5vw", borderRadius: "100vw", border: "1px solid rgba(201,168,76,0.3)", cursor: "none", transition: "all 0.4s" }}
             onMouseEnter={e => { e.currentTarget.style.background = "rgba(201,168,76,0.07)"; e.currentTarget.style.borderColor = "var(--gold)"; }}

@@ -4,7 +4,7 @@ import { SocialHoverCard } from "./SocialHoverCard";
 
 const navGroups = [
   { label: "Studio", links: [{ name: "About", href: "#about" }, { name: "Team", href: "#team" }, { name: "Process", href: "#process" }] },
-  { label: "Services", links: [{ name: "Web Design", href: "#services" }, { name: "UI / UX", href: "#services" }, { name: "SEO & Growth", href: "#services" }, { name: "AR & AI", href: "#services" }] },
+  { label: "Services", links: [{ name: "Web Design", href: "#services" }, { name: "UI / UX", href: "#services" }, { name: "SEO & Growth", href: "#services" }, { name: "AI Automation", href: "#services" }] },
   { label: "Work", links: [{ name: "Case Studies", href: "#work" }, { name: "Portfolio", href: "#work" }, { name: "Results", href: "#testimonials" }] },
   { label: "Contact", links: [{ name: "Start a Project", href: "#contact" }, { name: "hello@sako.agency", href: "mailto:hello@sako.agency" }] },
 ];

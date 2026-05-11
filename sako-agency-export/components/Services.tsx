@@ -12,7 +12,7 @@ const services = [
   { icon: Layers, num: "02", name: "UI / UX Design", tagline: "Inevitable Interfaces", desc: "Interfaces that feel designed for the user, not the designer. Clean, considered, conversion-led." },
   { icon: Search, num: "03", name: "SEO & Growth", tagline: "Rank Where It Matters", desc: "Compound organic growth that compounds month over month. We play the long game." },
   { icon: Palette, num: "04", name: "Brand & Graphics", tagline: "Identity That Lasts", desc: "Visual identities that command attention and build instant recognition across every touchpoint." },
-  { icon: Sparkles, num: "05", name: "AR Experiences", tagline: "Immersive & Unforgettable", desc: "Augmented reality activations that turn heads, generate press, and live rent-free in memory." },
+  { icon: Sparkles, num: "05", name: "Conversion Strategy", tagline: "Funnels That Convert", desc: "Offer positioning, page flow, and CRO-driven structure designed to turn traffic into qualified leads." },
   { icon: Brain, num: "06", name: "AI Integration", tagline: "Automate at Scale", desc: "Embed AI into your operations to personalize, automate, and ship 10× faster." },
 ];
 
@@ -41,15 +41,15 @@ export default function Services() {
           <div className="svc-heading">
             <span className="eyebrow" style={{ display: "block", marginBottom: "3vh" }}>— Capabilities</span>
             <h2 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(2.5rem,6vw,5.5rem)", fontWeight: 300, lineHeight: 1.05 }}>
-              What we <em style={{ background: "linear-gradient(135deg,#e8c56a,#c9a84c,#8b6914)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>do</em><br />— and do better.
+              What we <em style={{ background: "linear-gradient(135deg,#e8c56a,#c9a84c,#8b6914)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>do</em> — and do better.
             </h2>
           </div>
-          <p style={{ maxWidth: "25vw", fontSize: "clamp(0.8rem, 1vw, 1.1rem)", color: "var(--cream-dim)", lineHeight: 1.8 }}>
+          <p style={{ width: "min(92vw, 720px)", fontSize: "clamp(0.9rem, 1vw, 1.1rem)", color: "var(--cream-dim)", lineHeight: 1.8 }}>
             Six disciplines. One studio. Everything your brand needs to dominate.
           </p>
         </div>
 
-        <MagicBento 
+        <MagicBento
           cards={services.map(s => ({
             title: s.name,
             description: s.desc,

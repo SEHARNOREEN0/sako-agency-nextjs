@@ -56,8 +56,8 @@ export default function Process() {
                 key={s.n}
                 className="process-item"
                 style={{ padding: "0 2vw 6vh 0", position: "relative", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}
-                onMouseEnter={e => { const dot = e.currentTarget.querySelector(".process-dot") as HTMLElement; if (dot) { dot.style.background = "var(--gold)"; dot.style.transform = "scale(1.6)"; }}}
-                onMouseLeave={e => { const dot = e.currentTarget.querySelector(".process-dot") as HTMLElement; if (dot) { dot.style.background = "var(--black)"; dot.style.transform = "scale(1)"; }}}
+                onMouseEnter={e => { const dot = e.currentTarget.querySelector(".process-dot") as HTMLElement; if (dot) { dot.style.background = "var(--gold)"; dot.style.transform = "scale(1.6)"; } }}
+                onMouseLeave={e => { const dot = e.currentTarget.querySelector(".process-dot") as HTMLElement; if (dot) { dot.style.background = "var(--black)"; dot.style.transform = "scale(1)"; } }}
               >
                 {/* Dot */}
                 <div className="process-dot" style={{ width: "0.8vw", height: "0.8vw", minWidth: "8px", minHeight: "8px", borderRadius: "50%", border: "1px solid var(--gold)", background: "var(--black)", marginBottom: "4vh", transition: "background 0.4s, transform 0.4s" }} />
@@ -65,7 +65,7 @@ export default function Process() {
                 {/* Number */}
                 <div style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(3rem,5vw,4.5rem)", fontWeight: 300, lineHeight: 1, background: "linear-gradient(135deg,#e8c56a,#c9a84c,#8b6914)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", marginBottom: "2vh" }}>{s.n}</div>
 
-                <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "1.8vw", minFontSize: "20px", fontWeight: 400, marginBottom: "1.5vh" }}>{s.title}</h3>
+                <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(20px, 1.8vw, 36px)", fontWeight: 400, marginBottom: "1.5vh" }}>{s.title}</h3>
                 <p style={{ fontSize: "0.9vw", color: "var(--cream-dim)", lineHeight: 1.8, marginBottom: "3vh" }}>{s.desc}</p>
 
                 {/* Duration badge */}

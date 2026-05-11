@@ -6,6 +6,11 @@
   display: inline-block;
 }
 
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .char {
   display: inline-block;
 }

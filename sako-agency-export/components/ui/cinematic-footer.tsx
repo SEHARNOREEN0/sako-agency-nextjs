@@ -114,8 +114,7 @@ const STYLES = `
   display: flex;
   width: max-content;
   animation: sako-marquee 38s linear infinite;
-  font-size: 0.7vw;
-  min-font-size: 10px;
+  font-size: clamp(10px, 0.7vw, 18px);
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -169,11 +168,10 @@ const STYLES = `
   transform: scale(1.04);
 }
 
-.sako-pill-lg { padding: 2vh 2.5vw; font-size: 0.9vw; min-font-size: 13px; }
+.sako-pill-lg { padding: 2vh 2.5vw; font-size: clamp(13px, 0.9vw, 22px); }
 .sako-pill-sm {
   padding: 1.2vh 1.5vw;
-  font-size: 0.7vw;
-  min-font-size: 11px;
+  font-size: clamp(11px, 0.7vw, 18px);
   letter-spacing: 0.04em;
   color: rgba(240,236,228,0.45);
 }
@@ -259,7 +257,7 @@ const MagneticButton = React.forwardRef<HTMLElement, MagneticProps>(
             x: x * 0.4,
             y: y * 0.4,
             rotationX: -y * 0.15,
-            rotationY:  x * 0.15,
+            rotationY: x * 0.15,
             scale: 1.05,
             ease: "power2.out",
             duration: 0.4,
@@ -305,7 +303,7 @@ MagneticButton.displayName = "MagneticButton";
 // ─────────────────────────────────────────────
 const MARQUEE_ITEMS = [
   "Web Design", "UI / UX", "SEO & Growth",
-  "AR & AI", "Brand Strategy", "Future-Forward",
+  "AI Automation", "Brand Strategy", "Future-Forward",
 ];
 
 const MarqueeRow = () => (
@@ -337,23 +335,23 @@ export interface CinematicFooterProps {
 // MAIN COMPONENT
 // ─────────────────────────────────────────────
 export function CinematicFooter({
-  brandName    = "SAKO",
-  tagline      = "Ready to build something extraordinary?",
-  email        = "hello@sako.agency",
+  brandName = "SAKO",
+  tagline = "Ready to build something extraordinary?",
+  email = "hello@sako.agency",
   copyrightYear = "2024–2026",
-  primaryLinks  = [],
+  primaryLinks = [],
   secondaryLinks = [
-    { label: "About",          href: "#about"    },
-    { label: "Work",           href: "#work"     },
-    { label: "Services",       href: "#services" },
-    { label: "Privacy Policy", href: "#privacy"  },
-    { label: "Terms of Service", href: "#terms"  },
+    { label: "About", href: "#about" },
+    { label: "Work", href: "#work" },
+    { label: "Services", href: "#services" },
+    { label: "Privacy Policy", href: "#privacy" },
+    { label: "Terms of Service", href: "#terms" },
   ],
 }: CinematicFooterProps) {
-  const wrapperRef    = useRef<HTMLDivElement>(null);
-  const bgTextRef     = useRef<HTMLDivElement>(null);
-  const headlineRef   = useRef<HTMLHeadingElement>(null);
-  const pillsRef      = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const bgTextRef = useRef<HTMLDivElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const pillsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined" || !wrapperRef.current) return;
@@ -369,7 +367,7 @@ export function CinematicFooter({
           scrollTrigger: {
             trigger: wrapperRef.current,
             start: "top 85%",
-            end:   "bottom bottom",
+            end: "bottom bottom",
             scrub: 1.2,
           },
         }
@@ -386,7 +384,7 @@ export function CinematicFooter({
           scrollTrigger: {
             trigger: wrapperRef.current,
             start: "top 45%",
-            end:   "bottom bottom",
+            end: "bottom bottom",
             scrub: 1,
           },
         }
@@ -602,8 +600,7 @@ export function CinematicFooter({
             {/* Copyright */}
             <span
               style={{
-                fontSize: "0.7vw",
-                minFontSize: "10px",
+                fontSize: "clamp(10px, 0.7vw, 18px)",
                 fontWeight: 600,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
@@ -617,8 +614,7 @@ export function CinematicFooter({
             <div className="sako-glass-badge" aria-label="Made with love">
               <span
                 style={{
-                  fontSize: "0.7vw",
-                  minFontSize: "10px",
+                  fontSize: "clamp(10px, 0.7vw, 18px)",
                   fontWeight: 700,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -630,14 +626,13 @@ export function CinematicFooter({
               <span
                 className="sako-heartbeat"
                 aria-hidden="true"
-                style={{ color: "#c9a84c", fontSize: "1vw", minFontSize: "13px" }}
+                style={{ color: "#c9a84c", fontSize: "clamp(13px, 1vw, 22px)" }}
               >
                 ♥
               </span>
               <span
                 style={{
-                  fontSize: "0.7vw",
-                  minFontSize: "10px",
+                  fontSize: "clamp(10px, 0.7vw, 18px)",
                   fontWeight: 700,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -648,8 +643,7 @@ export function CinematicFooter({
               </span>
               <span
                 style={{
-                  fontSize: "0.9vw",
-                  minFontSize: "12px",
+                  fontSize: "clamp(12px, 0.9vw, 20px)",
                   fontWeight: 800,
                   color: "#c9a84c",
                   marginLeft: "0.2vw",

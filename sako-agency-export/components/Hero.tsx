@@ -68,7 +68,7 @@ export default function Hero() {
       ref={sectionRef}
       id="home"
       className="grain"
-      style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", background: "var(--black)", width: "100%" }}
+      style={{ position: "relative", zIndex: 2, minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", background: "var(--black)", width: "100%" }}
     >
       {/* Ambient background */}
       <div ref={bgRef} style={{ position: "absolute", inset: 0, opacity: 0 }}>
@@ -148,7 +148,7 @@ export default function Hero() {
           ref={subRef}
           style={{ maxWidth: "35vw", fontSize: "clamp(1rem, 1.2vw, 1.5rem)", lineHeight: 1.8, color: "var(--cream-dim)", marginBottom: "6vh", fontWeight: 300 }}
         >
-          { "Bespoke digital experiences — Web, UI/UX, SEO, AR & AI — for brands that refuse to be average.".split(" ").map((word, i) => (
+          {"Bespoke digital experiences — Web, UI/UX, SEO, and AI automation — for brands that refuse to be average.".split(" ").map((word, i) => (
             <span key={i} className="hero-sub-word" style={{ display: "inline-block", opacity: 0, marginRight: "0.25em" }}>
               {word}
             </span>
@@ -180,7 +180,7 @@ export default function Hero() {
 
         {/* Horizontal rule + descriptor */}
         <div style={{ marginTop: "10vh", paddingTop: "5vh", borderTop: "1px solid rgba(201,168,76,0.1)", display: "flex", gap: "3vw", flexWrap: "wrap", justifyContent: "center", width: "100%" }}>
-          {["Web Design", "UI / UX", "SEO", "AR Experiences", "AI Automation"].map(tag => (
+          {["Web Design", "UI / UX", "SEO", "Brand Strategy", "AI Automation"].map(tag => (
             <span key={tag} style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.7vw", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,240,232,0.3)" }}>{tag}</span>
           ))}
         </div>

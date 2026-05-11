@@ -1,6 +1,6 @@
 "use client";
 
-const items = ["Web Design", "UI / UX", "Brand Identity", "SEO & Growth", "AR Experiences", "AI Automation", "Digital Strategy", "Motion Design"];
+const items = ["Web Design", "UI / UX", "Brand Identity", "SEO & Growth", "Conversion Strategy", "AI Automation", "Digital Strategy", "Motion Design"];
 const sep = "✦";
 
 export default function Marquee() {

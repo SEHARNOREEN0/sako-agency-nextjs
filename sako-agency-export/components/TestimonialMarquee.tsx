@@ -35,7 +35,7 @@ const SAKO_DATA_2: TestimonialCardT[] = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200",
     name: "Julien Moreau",
     handle: "Director, Maison Verre",
-    quote: "The AR experience they built generated international press coverage we couldn't have bought. Extraordinary work.",
+    quote: "The campaign system they built generated international press coverage we couldn't have bought. Extraordinary work.",
   },
   {
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200",
@@ -67,7 +67,7 @@ export default function TestimonialMarquee() {
           <h2 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(2.5rem,6vw,5.5rem)", fontWeight: 300, lineHeight: 1.05 }}>
             What our clients <em style={{ background: "linear-gradient(135deg,#e8c56a,#c9a84c,#8b6914)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>say.</em>
           </h2>
-          <p style={{ maxWidth: "35vw", margin: "2vh auto 0", fontSize: "clamp(0.9rem, 1.1vw, 1.25rem)", color: "var(--cream-dim)", lineHeight: 1.8 }}>
+          <p style={{ width: "min(92vw, 700px)", margin: "2vh auto 0", fontSize: "clamp(0.9rem, 1.1vw, 1.25rem)", color: "var(--cream-dim)", lineHeight: 1.8 }}>
             Don't just take our word for it. We let our results — and our clients — do the talking.
           </p>
         </div>
