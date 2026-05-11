@@ -70,12 +70,13 @@ const STYLES = `
 .pw-inner {
   position: relative;
   z-index: 10;
-  padding: 72px 40px 100px;
-  max-width: 1180px;
+  padding: 10vh 4vw;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 6vh;
 }
 
 /* ── Header ── */
@@ -84,20 +85,21 @@ const STYLES = `
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 2vh;
 }
 .pw-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8vw;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 0.7vw;
+  min-font-size: 11px;
   color: rgba(201,168,76,0.85);
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 .pw-eyebrow-line {
-  width: 28px;
+  width: 2vw;
   height: 1px;
   background: rgba(201,168,76,0.45);
 }
@@ -111,10 +113,11 @@ const STYLES = `
   color: #f5f0e8;
 }
 .pw-subtitle {
-  font-size: 14.5px;
+  font-size: 1vw;
+  min-font-size: 14px;
   color: rgba(245,240,232,0.4);
   line-height: 1.7;
-  max-width: 500px;
+  max-width: 40vw;
   margin: 0;
 }
 
@@ -123,14 +126,14 @@ const STYLES = `
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-auto-rows: 1fr;
-  gap: 28px;
+  gap: 2.5vw;
   align-items: stretch;
 }
 .pw-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 24px;
-  padding: 38px 28px;
+  border-radius: 1.5vw;
+  padding: 4vh 2.5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -152,38 +155,41 @@ const STYLES = `
 .pw-card-intro {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  min-height: 260px;
+  gap: 2vh;
+  min-height: 25vh;
 }
 .pw-card-body {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 3vh;
 }
 .pw-card-footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 1vw;
 }
 .pw-card-title {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 1.95rem;
+  font-size: 2vw;
+  min-font-size: 24px;
   color: #f5f0e8;
   line-height: 1;
 }
 .pw-plan-label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7vw;
+  min-font-size: 10px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: rgba(232,234,242,0.35);
-  margin-bottom: 8px;
+  margin-bottom: 1vh;
 }
 .pw-plan-price {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 3.5vw;
+  min-font-size: 40px;
   letter-spacing: -0.04em;
   color: #c9a84c;
   line-height: 1;
@@ -191,7 +197,8 @@ const STYLES = `
 }
 .pw-plan-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9vw;
+  min-font-size: 14px;
   color: rgba(245,240,232,0.68);
   line-height: 1.8;
   margin: 0;
@@ -200,16 +207,17 @@ const STYLES = `
   width: 100%;
   height: 1px;
   background: rgba(255,255,255,0.08);
-  margin: 24px 0;
+  margin: 3vh 0;
 }
 .pw-btn-ghost {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.8vw;
+  min-font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 14px 22px;
-  border-radius: 14px;
+  padding: 1.5vh 1.8vw;
+  border-radius: 1vw;
   background: transparent;
   border: 1px solid rgba(201,168,76,0.30);
   color: rgba(245,240,232,0.85);
@@ -224,11 +232,12 @@ const STYLES = `
 .pw-btn-primary {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 0.8vw;
+  min-font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 14px 22px;
-  border-radius: 14px;
+  padding: 1.5vh 1.8vw;
+  border-radius: 1vw;
   background: #c9a84c;
   border: none;
   color: #050505;
@@ -243,11 +252,12 @@ const STYLES = `
 .pw-btn-outline {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.8vw;
+  min-font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 14px 22px;
-  border-radius: 14px;
+  padding: 1.5vh 1.8vw;
+  border-radius: 1vw;
   background: transparent;
   border: 1px solid rgba(201,168,76,0.30);
   color: rgba(245,240,232,0.82);
@@ -265,20 +275,23 @@ const STYLES = `
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 1.5vh;
   font-family: 'Inter', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.8vw;
+  min-font-size: 13px;
   line-height: 1.75;
   color: rgba(245,240,232,0.72);
 }
 .pw-feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 0.8vw;
 }
 .pw-feat-icon {
-  width: 18px;
-  height: 18px;
+  width: 1.2vw;
+  height: 1.2vw;
+  min-width: 18px;
+  min-height: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -290,27 +303,45 @@ const STYLES = `
   display: contents;
 }
 .pw-chart-card {
-  border-radius: 20px;
+  border-radius: 1.2vw;
   border: 1px solid rgba(255,255,255,0.08);
   background: rgba(255,255,255,0.03);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 260px;
+  min-height: 25vh;
 }
 .pw-chart-body {
   flex: 1;
-  padding: 14px 10px 10px;
+  padding: 1.5vh 1vw 1vw;
 }
 .pw-chart-header {
-  padding: 0 0 16px 0;
+  padding: 0 0 1.5vh 0;
+  text-align: center;
 }
 .pw-chart-sub {
-  font-size: 0.9rem;
-  color: rgba(245,240,232,0.64);
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.01em;
+  font-size: 0.7vw;
+  min-font-size: 11px;
+  color: rgba(245,240,232,0.45);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
+
+/* Specific styling for the Professional card title */
+.featured .pw-card-title {
+  font-family: 'Cormorant', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 2.8vw;
+  min-font-size: 32px;
+  background: linear-gradient(135deg, #f5f0e8 0%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.01em;
+}
+
 .pw-card-footer {
   margin-top: auto;
 }
@@ -318,14 +349,16 @@ const STYLES = `
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 2vw;
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8vw;
+  min-font-size: 13px;
   color: rgba(245,240,232,0.26);
   letter-spacing: 0.08em;
 }
 .pw-footnote-dot {
-  width: 3px; height: 3px;
+  width: 0.3vw; height: 0.3vw;
+  min-width: 3px; min-height: 3px;
   border-radius: 50%;
   background: rgba(245,240,232,0.15);
 }
@@ -335,8 +368,8 @@ const STYLES = `
 }
 @media (max-width: 900px) {
   .pw-card-wrap { grid-template-columns: 1fr; }
-  .pw-inner { padding: 40px 18px 60px; }
-  .pw-card { padding: 30px 24px; }
+  .pw-inner { padding: 8vh 4vw; }
+  .pw-card { padding: 4vh 6vw; }
 }
 
 /* ── Toggle Switch ── */
@@ -344,11 +377,12 @@ const STYLES = `
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 40px;
+  gap: 1.2vw;
+  margin-bottom: 5vh;
 }
 .pw-toggle-label {
-  font-size: 13px;
+  font-size: 0.8vw;
+  min-font-size: 13px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   color: rgba(245,240,232,0.7);
@@ -359,11 +393,13 @@ const STYLES = `
 }
 .pw-toggle-switch {
   position: relative;
-  width: 60px;
-  height: 30px;
+  width: 4vw;
+  min-width: 60px;
+  height: 2vw;
+  min-height: 30px;
   background: rgba(201,168,76,0.15);
   border: 1px solid rgba(201,168,76,0.25);
-  border-radius: 15px;
+  border-radius: 100vw;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -372,29 +408,32 @@ const STYLES = `
 }
 .pw-toggle-thumb {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 24px;
-  height: 24px;
+  top: 0.2vw;
+  left: 0.2vw;
+  width: 1.6vw;
+  min-width: 24px;
+  height: 1.6vw;
+  min-height: 24px;
   background: #c9a84c;
-  border-radius: 12px;
+  border-radius: 50%;
   transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
 }
 .pw-toggle-switch.active .pw-toggle-thumb {
-  transform: translateX(30px);
+  transform: translateX(1.8vw);
 }
 .pw-discount-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
+  gap: 0.5vw;
+  padding: 0.5vh 0.8vw;
   background: rgba(201,168,76,0.1);
   border: 1px solid rgba(201,168,76,0.2);
-  border-radius: 6px;
-  font-size: 11px;
+  border-radius: 0.5vw;
+  font-size: 0.7vw;
+  min-font-size: 11px;
   font-family: 'Inter', sans-serif;
   color: #c9a84c;
-  margin-left: 8px;
+  margin-left: 0.8vw;
 }
 
 /* ── Counter Animation ── */
@@ -556,35 +595,6 @@ export default function PricingWithChart() {
             </p>
           </motion.div>
 
-          {/* ── Toggle Switch ── */}
-          <motion.div
-            className="pw-toggle-container"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className={`pw-toggle-label ${!isAnnual ? "active" : ""}`}>Monthly</span>
-            <div
-              className={`pw-toggle-switch ${isAnnual ? "active" : ""}`}
-              onClick={() => setIsAnnual(!isAnnual)}
-              role="switch"
-              aria-checked={isAnnual}
-            >
-              <div className="pw-toggle-thumb" />
-            </div>
-            <span className={`pw-toggle-label ${isAnnual ? "active" : ""}`}>Annual</span>
-            {isAnnual && (
-              <motion.div
-                className="pw-discount-badge"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                ✓ Save 17%
-              </motion.div>
-            )}
-          </motion.div>
-
           {/* ── Pricing Cards ── */}
           <motion.div
             className="pw-card-wrap"
@@ -620,7 +630,49 @@ export default function PricingWithChart() {
               </div>
             </article>
 
-            <article className="pw-card featured">
+            <article className="pw-card featured" style={{ position: "relative" }}>
+              {/* ── Toggle Switch moved to corner ── */}
+              <div
+                className="pw-toggle-container"
+                style={{
+                  position: "absolute",
+                  top: "1.5vh",
+                  right: "1vw",
+                  margin: 0,
+                  zIndex: 20,
+                  transform: "scale(0.75)",
+                  transformOrigin: "top right",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
+                  gap: "0.5vh"
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <span className={`pw-toggle-label ${!isAnnual ? "active" : ""}`} style={{ fontSize: "10px" }}>Monthly</span>
+                  <div
+                    className={`pw-toggle-switch ${isAnnual ? "active" : ""}`}
+                    onClick={() => setIsAnnual(!isAnnual)}
+                    role="switch"
+                    aria-checked={isAnnual}
+                  >
+                    <div className="pw-toggle-thumb" />
+                  </div>
+                  <span className={`pw-toggle-label ${isAnnual ? "active" : ""}`} style={{ fontSize: "10px" }}>Annual</span>
+                </div>
+                
+                {isAnnual && (
+                  <motion.div
+                    className="pw-discount-badge"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    style={{ margin: 0, fontSize: "9px", padding: "2px 6px" }}
+                  >
+                    Save 17%
+                  </motion.div>
+                )}
+              </div>
+
               <div className="pw-card-intro">
                 <div className="pw-plan-label">Tier 01</div>
                 <div className="pw-card-title">Professional</div>

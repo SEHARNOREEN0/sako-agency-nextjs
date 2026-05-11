@@ -1,8 +1,11 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import DotField from "./DotField";
+
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -16,6 +19,7 @@ export default function Hero() {
   const orb2Ref = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ delay: 0.3 });
@@ -29,6 +33,25 @@ export default function Hero() {
       .fromTo(btnsRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.5")
       .fromTo(badgeRef.current, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }, "-=0.6")
       .fromTo(scrollRef.current, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.3");
+
+    // Parallax animations
+    gsap.to(orb1Ref.current, {
+      y: "20vh",
+      scrollTrigger: { trigger: sectionRef.current, start: "top top", end: "bottom top", scrub: true }
+    });
+    gsap.to(orb2Ref.current, {
+      y: "-15vh",
+      scrollTrigger: { trigger: sectionRef.current, start: "top top", end: "bottom top", scrub: true }
+    });
+    gsap.to(ringRef.current, {
+      y: "10vh",
+      rotate: 90,
+      scrollTrigger: { trigger: sectionRef.current, start: "top top", end: "bottom top", scrub: true }
+    });
+    gsap.to(headRef.current, {
+      y: "5vh",
+      scrollTrigger: { trigger: sectionRef.current, start: "top top", end: "bottom top", scrub: true }
+    });
   }, []);
 
   const scrollToWork = () => document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
@@ -45,12 +68,12 @@ export default function Hero() {
       ref={sectionRef}
       id="home"
       className="grain"
-      style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", background: "var(--black)" }}
+      style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", background: "var(--black)", width: "100%" }}
     >
       {/* Ambient background */}
       <div ref={bgRef} style={{ position: "absolute", inset: 0, opacity: 0 }}>
-        <div ref={orb1Ref} style={{ position: "absolute", top: "10%", right: "15%", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)", filter: "blur(40px)" }} />
-        <div ref={orb2Ref} style={{ position: "absolute", bottom: "5%", left: "-5%", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)", filter: "blur(60px)" }} />
+        <div ref={orb1Ref} style={{ position: "absolute", top: "10%", right: "15%", width: "40vw", height: "40vw", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)", filter: "blur(4vw)" }} />
+        <div ref={orb2Ref} style={{ position: "absolute", bottom: "5%", left: "-5%", width: "35vw", height: "35vw", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)", filter: "blur(6vw)" }} />
       </div>
 
       {/* Interactive Dot Grid overlay */}
@@ -66,32 +89,32 @@ export default function Hero() {
       </div>
 
       {/* Rotating ring */}
-      <div className="animate-spin-slow" style={{ position: "absolute", top: "50%", right: "8%", transform: "translateY(-50%)", width: "380px", height: "380px", border: "1px solid rgba(201,168,76,0.08)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: "280px", height: "280px", border: "1px solid rgba(201,168,76,0.12)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <div style={{ width: "180px", height: "180px", border: "1px solid rgba(201,168,76,0.18)", borderRadius: "50%" }} />
+      <div ref={ringRef} className="animate-spin-slow" style={{ position: "absolute", top: "50%", right: "5%", transform: "translateY(-50%)", width: "25vw", height: "25vw", border: "1px solid rgba(201,168,76,0.08)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: "18vw", height: "18vw", border: "1px solid rgba(201,168,76,0.12)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: "12vw", height: "12vw", border: "1px solid rgba(201,168,76,0.18)", borderRadius: "50%" }} />
         </div>
       </div>
 
       {/* Stats badge — top right */}
-      <div ref={badgeRef} style={{ position: "absolute", top: "160px", right: "60px", gap: "24px", opacity: 0 }} className="hidden lg:flex">
+      <div ref={badgeRef} style={{ position: "absolute", top: "20vh", right: "4vw", gap: "2vw", opacity: 0 }} className="hidden lg:flex">
         {stats.map(s => (
           <div key={s.num} style={{ textAlign: "center" }}>
-            <div style={{ fontFamily: "'Cormorant',serif", fontSize: "32px", fontWeight: 300, color: "var(--gold)", lineHeight: 1 }}>{s.num}</div>
-            <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--cream-dim)", marginTop: "4px" }}>{s.label}</div>
+            <div style={{ fontFamily: "'Cormorant',serif", fontSize: "2.2vw", fontWeight: 300, color: "var(--gold)", lineHeight: 1 }}>{s.num}</div>
+            <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--cream-dim)", marginTop: "0.5vh" }}>{s.label}</div>
           </div>
         ))}
       </div>
 
       {/* Main content */}
-      <div className="container" style={{ position: "relative", zIndex: 10, paddingTop: "120px", paddingBottom: "80px" }}>
-        <div ref={eyebrowRef} style={{ opacity: 0, marginBottom: "28px", marginLeft: "-36px" }}>
-          <span className="eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: "12px" }}>
-            <span style={{ width: "24px", height: "1px", background: "var(--gold)", display: "inline-block" }} />
+      <div className="container" style={{ position: "relative", zIndex: 10, paddingTop: "15vh", paddingBottom: "10vh", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div ref={eyebrowRef} style={{ opacity: 0, marginBottom: "4vh" }}>
+          <span className="eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: "1vw" }}>
+            <span style={{ width: "2vw", height: "1px", background: "var(--gold)", display: "inline-block" }} />
             Future-Forward Digital Agency · Est. 2024
           </span>
         </div>
 
-        <div ref={headRef} style={{ overflow: "hidden", marginBottom: "32px" }}>
+        <div ref={headRef} style={{ overflow: "hidden", marginBottom: "4vh", width: "100%" }}>
           {[
             { text: "We Don't Just", italic: false },
             { text: "Build.", italic: false },
@@ -123,7 +146,7 @@ export default function Hero() {
 
         <div
           ref={subRef}
-          style={{ maxWidth: "480px", fontSize: "17px", lineHeight: 1.8, color: "var(--cream-dim)", marginBottom: "48px", fontWeight: 300 }}
+          style={{ maxWidth: "35vw", fontSize: "clamp(1rem, 1.2vw, 1.5rem)", lineHeight: 1.8, color: "var(--cream-dim)", marginBottom: "6vh", fontWeight: 300 }}
         >
           { "Bespoke digital experiences — Web, UI/UX, SEO, AR & AI — for brands that refuse to be average.".split(" ").map((word, i) => (
             <span key={i} className="hero-sub-word" style={{ display: "inline-block", opacity: 0, marginRight: "0.25em" }}>
@@ -132,11 +155,11 @@ export default function Hero() {
           ))}
         </div>
 
-        <div ref={btnsRef} style={{ display: "flex", gap: "16px", flexWrap: "wrap", opacity: 0 }}>
+        <div ref={btnsRef} style={{ display: "flex", gap: "1.2vw", flexWrap: "wrap", justifyContent: "center", opacity: 0 }}>
           <button
             onClick={scrollToContact}
             data-cursor="magnetic"
-            style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "var(--gold)", color: "var(--black)", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", padding: "20px 40px", borderRadius: "100px", border: "none", cursor: "none", transition: "transform 0.4s var(--transition),box-shadow 0.4s" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "1vw", background: "var(--gold)", color: "var(--black)", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "clamp(10px, 0.8vw, 14px)", letterSpacing: "0.15em", textTransform: "uppercase", padding: "2.5vh 3vw", borderRadius: "100vw", border: "none", cursor: "none", transition: "transform 0.4s var(--transition),box-shadow 0.4s" }}
             onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.05)"; e.currentTarget.style.boxShadow = "0 20px 60px -10px rgba(201,168,76,0.45)"; }}
             onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "none"; }}
           >
@@ -147,7 +170,7 @@ export default function Hero() {
           <button
             onClick={scrollToWork}
             data-cursor="magnetic"
-            style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "transparent", color: "var(--gold)", fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", padding: "19px 38px", borderRadius: "100px", border: "1px solid rgba(201,168,76,0.3)", cursor: "none", transition: "background 0.4s,border-color 0.4s,transform 0.4s var(--transition)" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "1vw", background: "transparent", color: "var(--gold)", fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "clamp(10px, 0.8vw, 14px)", letterSpacing: "0.15em", textTransform: "uppercase", padding: "2.4vh 2.8vw", borderRadius: "100vw", border: "1px solid rgba(201,168,76,0.3)", cursor: "none", transition: "background 0.4s,border-color 0.4s,transform 0.4s var(--transition)" }}
             onMouseEnter={e => { e.currentTarget.style.background = "rgba(201,168,76,0.07)"; e.currentTarget.style.borderColor = "var(--gold)"; e.currentTarget.style.transform = "scale(1.05)"; }}
             onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.3)"; e.currentTarget.style.transform = "scale(1)"; }}
           >
@@ -156,18 +179,18 @@ export default function Hero() {
         </div>
 
         {/* Horizontal rule + descriptor */}
-        <div style={{ marginTop: "80px", paddingTop: "40px", borderTop: "1px solid rgba(201,168,76,0.1)", display: "flex", gap: "48px", flexWrap: "wrap" }}>
+        <div style={{ marginTop: "10vh", paddingTop: "5vh", borderTop: "1px solid rgba(201,168,76,0.1)", display: "flex", gap: "3vw", flexWrap: "wrap", justifyContent: "center", width: "100%" }}>
           {["Web Design", "UI / UX", "SEO", "AR Experiences", "AI Automation"].map(tag => (
-            <span key={tag} style={{ fontFamily: "'Syne',sans-serif", fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,240,232,0.3)" }}>{tag}</span>
+            <span key={tag} style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.7vw", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,240,232,0.3)" }}>{tag}</span>
           ))}
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div ref={scrollRef} style={{ position: "absolute", bottom: "40px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", opacity: 0 }}>
+      <div ref={scrollRef} style={{ position: "absolute", bottom: "5vh", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "1vh", opacity: 0 }}>
         <ChevronDown size={16} color="rgba(201,168,76,0.5)" className="animate-float" />
-        <div style={{ width: "1px", height: "60px", background: "linear-gradient(to bottom, rgba(201,168,76,0.6), transparent)" }} />
-        <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(201,168,76,0.4)" }}>Scroll</span>
+        <div style={{ width: "1px", height: "8vh", background: "linear-gradient(to bottom, rgba(201,168,76,0.6), transparent)" }} />
+        <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(201,168,76,0.4)" }}>Scroll</span>
       </div>
     </section>
   );

@@ -104,17 +104,18 @@ const STYLES = `
   background: rgba(8,7,6,0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 14px 0;
+  padding: 1.5vh 0;
   transform: rotate(-1.5deg) scaleX(1.08);
   overflow: hidden;
-  margin-top: 48px;
+  margin-top: 6vh;
 }
 
 .sako-marquee-track {
   display: flex;
   width: max-content;
   animation: sako-marquee 38s linear infinite;
-  font-size: 10px;
+  font-size: 0.7vw;
+  min-font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -124,8 +125,8 @@ const STYLES = `
 .sako-marquee-item {
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: 0 20px;
+  gap: 3vw;
+  padding: 0 1.5vw;
   white-space: nowrap;
 }
 
@@ -147,8 +148,8 @@ const STYLES = `
 .sako-pill {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  border-radius: 100px;
+  gap: 0.8vw;
+  border-radius: 100vw;
   border: 1px solid rgba(201,168,76,0.2);
   background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
   backdrop-filter: blur(12px);
@@ -168,18 +169,21 @@ const STYLES = `
   transform: scale(1.04);
 }
 
-.sako-pill-lg { padding: 16px 32px; font-size: 13px; }
+.sako-pill-lg { padding: 2vh 2.5vw; font-size: 0.9vw; min-font-size: 13px; }
 .sako-pill-sm {
-  padding: 10px 20px;
-  font-size: 11px;
+  padding: 1.2vh 1.5vw;
+  font-size: 0.7vw;
+  min-font-size: 11px;
   letter-spacing: 0.04em;
   color: rgba(240,236,228,0.45);
 }
 .sako-pill-sm:hover { color: rgba(240,236,228,0.85); }
 
 .sako-pill-icon {
-  width: 20px;
-  height: 20px;
+  width: 1.2vw;
+  height: 1.2vw;
+  min-width: 18px;
+  min-height: 18px;
   opacity: 0.6;
   transition: opacity 0.3s;
   flex-shrink: 0;
@@ -189,18 +193,20 @@ const STYLES = `
 .sako-glass-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  border-radius: 100px;
+  gap: 0.6vw;
+  border-radius: 100vw;
   border: 1px solid rgba(201,168,76,0.18);
   background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-  padding: 10px 20px;
+  padding: 1.2vh 1.5vw;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 .sako-top-btn {
-  width: 44px;
-  height: 44px;
+  width: 3vw;
+  height: 3vw;
+  min-width: 40px;
+  min-height: 40px;
   border-radius: 50%;
   border: 1px solid rgba(201,168,76,0.2);
   background: rgba(255,255,255,0.04);
@@ -216,10 +222,10 @@ const STYLES = `
 .sako-top-btn:hover {
   border-color: rgba(201,168,76,0.5);
   background: rgba(201,168,76,0.1);
-  transform: translateY(-2px);
+  transform: translateY(-0.4vh);
 }
 .sako-top-btn-icon { transition: transform 0.3s; }
-.sako-top-btn:hover .sako-top-btn-icon { transform: translateY(-3px); }
+.sako-top-btn:hover .sako-top-btn-icon { transform: translateY(-0.5vh); }
 
 .sako-heartbeat { animation: sako-heartbeat 2s cubic-bezier(0.25,1,0.5,1) infinite; display: inline-block; }
 
@@ -455,8 +461,8 @@ export function CinematicFooter({
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              padding: "48px 24px 24px",
-              gap: "36px",
+              padding: "6vh 4vw 4vh",
+              gap: "4vh",
             }}
           >
             {/* Headline */}
@@ -476,7 +482,7 @@ export function CinematicFooter({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                gap: "16px",
+                gap: "2vh",
                 width: "100%",
               }}
             >
@@ -486,7 +492,7 @@ export function CinematicFooter({
                   display: "flex",
                   flexWrap: "wrap",
                   justifyContent: "center",
-                  gap: "14px",
+                  gap: "1.2vw",
                 }}
               >
                 <MagneticButton
@@ -555,7 +561,7 @@ export function CinematicFooter({
                   display: "flex",
                   flexWrap: "wrap",
                   justifyContent: "center",
-                  gap: "10px",
+                  gap: "0.8vw",
                 }}
               >
                 {secondaryLinks.map((link) => (
@@ -588,15 +594,16 @@ export function CinematicFooter({
               alignItems: "center",
               justifyContent: "space-between",
               flexWrap: "wrap",
-              gap: "14px",
-              padding: "20px 40px 36px",
+              gap: "1.5vw",
+              padding: "2.5vh 4vw 4.5vh",
               borderTop: "1px solid rgba(201,168,76,0.1)",
             }}
           >
             {/* Copyright */}
             <span
               style={{
-                fontSize: "10px",
+                fontSize: "0.7vw",
+                minFontSize: "10px",
                 fontWeight: 600,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
@@ -610,7 +617,8 @@ export function CinematicFooter({
             <div className="sako-glass-badge" aria-label="Made with love">
               <span
                 style={{
-                  fontSize: "10px",
+                  fontSize: "0.7vw",
+                  minFontSize: "10px",
                   fontWeight: 700,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -622,13 +630,14 @@ export function CinematicFooter({
               <span
                 className="sako-heartbeat"
                 aria-hidden="true"
-                style={{ color: "#c9a84c", fontSize: "13px" }}
+                style={{ color: "#c9a84c", fontSize: "1vw", minFontSize: "13px" }}
               >
                 ♥
               </span>
               <span
                 style={{
-                  fontSize: "10px",
+                  fontSize: "0.7vw",
+                  minFontSize: "10px",
                   fontWeight: 700,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -639,10 +648,11 @@ export function CinematicFooter({
               </span>
               <span
                 style={{
-                  fontSize: "12px",
+                  fontSize: "0.9vw",
+                  minFontSize: "12px",
                   fontWeight: 800,
                   color: "#c9a84c",
-                  marginLeft: "2px",
+                  marginLeft: "0.2vw",
                 }}
               >
                 {brandName}

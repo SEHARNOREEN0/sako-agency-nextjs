@@ -50,22 +50,22 @@ const analyticsData = [
 
 export default function AdminDashboard() {
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-      <header style={{ marginBottom: "48px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+    <div style={{ width: "100%", maxWidth: "1280px", margin: "0 auto", padding: "4vh 4vw" }}>
+      <header style={{ marginBottom: "6vh", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "2vh" }}>
         <div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "36px", fontWeight: 400, color: "var(--cream)", marginBottom: "8px" }}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 3vw, 3rem)", fontWeight: 400, color: "var(--cream)", marginBottom: "1vh" }}>
             Overview
           </h1>
-          <p style={{ fontFamily: "'Outfit', sans-serif", color: "var(--cream-dim)", fontSize: "16px" }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", color: "var(--cream-dim)", fontSize: "0.9vw", minFontSize: "14px" }}>
             Real-time insights and analytics for your agency.
           </p>
         </div>
         
-        <div style={{ display: "flex", gap: "12px" }}>
-          <button style={{ padding: "10px 20px", borderRadius: "100px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--cream)", fontFamily: "'Outfit', sans-serif", fontSize: "12px", fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
+        <div style={{ display: "flex", gap: "1vw" }}>
+          <button style={{ padding: "1.2vh 1.8vw", borderRadius: "100vw", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--cream)", fontFamily: "'Outfit', sans-serif", fontSize: "0.7vw", minFontSize: "11px", fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
             Export PDF
           </button>
-          <button style={{ padding: "10px 20px", borderRadius: "100px", background: "var(--gold)", border: "none", color: "var(--black)", fontFamily: "'Outfit', sans-serif", fontSize: "12px", fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
+          <button style={{ padding: "1.2vh 1.8vw", borderRadius: "100vw", background: "var(--gold)", border: "none", color: "var(--black)", fontFamily: "'Outfit', sans-serif", fontSize: "0.7vw", minFontSize: "11px", fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
             Generate Report
           </button>
         </div>

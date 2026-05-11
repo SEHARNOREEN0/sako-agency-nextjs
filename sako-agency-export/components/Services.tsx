@@ -34,17 +34,17 @@ export default function Services() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="services" style={{ background: "var(--black)", position: "relative" }}>
+    <section ref={sectionRef} id="services" style={{ background: "var(--black)", position: "relative", width: "100%" }}>
       <div className="container section-pad">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end flex-wrap gap-6 mb-12">
+        <div className="flex flex-col items-center text-center gap-6 mb-12">
           <div className="svc-heading">
-            <span className="eyebrow" style={{ display: "block", marginBottom: "20px" }}>— Capabilities</span>
+            <span className="eyebrow" style={{ display: "block", marginBottom: "3vh" }}>— Capabilities</span>
             <h2 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(2.5rem,6vw,5.5rem)", fontWeight: 300, lineHeight: 1.05 }}>
               What we <em style={{ background: "linear-gradient(135deg,#e8c56a,#c9a84c,#8b6914)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>do</em><br />— and do better.
             </h2>
           </div>
-          <p style={{ maxWidth: "320px", fontSize: "14px", color: "var(--cream-dim)", lineHeight: 1.8 }}>
+          <p style={{ maxWidth: "25vw", fontSize: "clamp(0.8rem, 1vw, 1.1rem)", color: "var(--cream-dim)", lineHeight: 1.8 }}>
             Six disciplines. One studio. Everything your brand needs to dominate.
           </p>
         </div>

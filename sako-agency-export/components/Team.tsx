@@ -36,7 +36,7 @@ const TEAM_DATA: TeamMember[] = [
     initials: "AM",
     color: "#9b4cc9",
     bio: "Full-stack architect obsessed with performance and scalability.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    avatar: "/assest/atifmumtaz.png",
     category: "Developer",
   },
   {
@@ -101,16 +101,16 @@ export default function Team() {
       ref={sectionRef}
       id="team"
       className="relative"
-      style={{ background: "var(--black-3)", padding: "clamp(4rem, 8vw, 6rem) 0", overflow: "hidden" }}
+      style={{ background: "var(--black-3)", padding: "10vh 0", overflow: "hidden", width: "100%" }}
     >
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(1.5rem, 4vw, 4rem)" }}>
+      <div className="container">
         {/* Section Header */}
-        <header className="text-center" style={{ marginBottom: "clamp(3rem, 6vw, 5rem)" }}>
-          <span className="eyebrow" style={{ display: "block", marginBottom: "1.25rem" }}>— The People</span>
+        <header style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "8vh" }}>
+          <span className="eyebrow" style={{ display: "block", marginBottom: "3vh" }}>— The People</span>
           <h2 style={headerStyles.title}>
             Meet the <em style={headerStyles.gradientText}>studio.</em>
           </h2>
-          <p style={{ maxWidth: "28rem", margin: "1.25rem auto 0", fontSize: "1rem", lineHeight: 1.6, color: "var(--cream-dim)" }}>
+          <p style={{ maxWidth: "30vw", margin: "2vh auto 0", fontSize: "clamp(0.9rem, 1vw, 1.1rem)", lineHeight: 1.6, color: "var(--cream-dim)" }}>
             A small, senior team. No middlemen — direct access to the people building your future.
           </p>
         </header>
@@ -120,8 +120,8 @@ export default function Team() {
           className="team-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "clamp(0.75rem, 2vw, 2.5rem)"
+            gridTemplateColumns: "repeat(auto-fit, minmax(22vw, 1fr))",
+            gap: "2.5vw"
           }}
         >
           {TEAM_DATA.map((member) => (
