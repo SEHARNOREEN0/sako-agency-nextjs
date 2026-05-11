@@ -67,7 +67,7 @@ export default function Work() {
           <button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
             data-cursor="magnetic"
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.5vw", background: "none", border: "none", fontFamily: "'Syne',sans-serif", fontSize: "0.7vw", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", cursor: "none" }}>
+            style={{ display: "inline-flex", alignItems: "center", gap: "clamp(4px, 0.5vw, 8px)", background: "none", border: "none", fontFamily: "'Syne',sans-serif", fontSize: "clamp(11px, 0.7vw, 13px)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)", cursor: "none" }}>
             All Projects <ArrowUpRight size={14} />
           </button>
         </div>
@@ -90,20 +90,20 @@ export default function Work() {
               <div style={{ position: "absolute", top: "-10%", right: "-5%", width: "20vw", height: "20vw", borderRadius: "50%", background: `radial-gradient(circle, ${p.accent}18 0%, transparent 70%)`, filter: "blur(3vw)" }} />
 
               {/* Top tag */}
-              <div style={{ position: "absolute", top: "2vh", left: "1.5vw", display: "flex", gap: "0.5vw", alignItems: "center", zIndex: 2 }}>
-                <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,240,232,0.5)", border: "1px solid rgba(245,240,232,0.15)", padding: "0.6vh 1vw", borderRadius: "100vw", backdropFilter: "blur(8px)" }}>{p.tag}</span>
+              <div style={{ position: "absolute", top: "2vh", left: "clamp(10px, 1.5vw, 20px)", display: "flex", gap: "clamp(4px, 0.5vw, 8px)", alignItems: "center", zIndex: 2 }}>
+                <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 11px)", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,240,232,0.5)", border: "1px solid rgba(245,240,232,0.15)", padding: "clamp(4px, 0.6vh, 8px) clamp(8px, 1vw, 14px)", borderRadius: "100vw", backdropFilter: "blur(8px)" }}>{p.tag}</span>
               </div>
-              <div style={{ position: "absolute", top: "2vh", right: "1.5vw", zIndex: 2 }}>
-                <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", letterSpacing: "0.2em", color: "rgba(245,240,232,0.3)" }}>{p.year}</span>
+              <div style={{ position: "absolute", top: "2vh", right: "clamp(10px, 1.5vw, 20px)", zIndex: 2 }}>
+                <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 11px)", letterSpacing: "0.2em", color: "rgba(245,240,232,0.3)" }}>{p.year}</span>
               </div>
 
               {/* Content */}
-              <div className="card-content" style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "2vw", zIndex: 2, color: "#f5f0e8" }}>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", color: p.accent, marginBottom: "1vh" }}>{p.category}</div>
+              <div className="card-content" style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "clamp(14px, 2vw, 28px)", zIndex: 2, color: "#f5f0e8" }}>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 11px)", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", color: p.accent, marginBottom: "1vh" }}>{p.category}</div>
                 <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(1.8rem,3vw,2.8rem)", fontWeight: 400, lineHeight: 1.1, marginBottom: "1vh", color: "#f5f0e8" }}>{p.title}</h3>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5vw" }}>
-                  <span style={{ fontSize: "0.8vw", color: "rgba(245,240,232,0.6)" }}>{p.services}</span>
-                  <span className="card-reveal" style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.7vw", fontWeight: 600, color: p.accent, display: "flex", alignItems: "center", gap: "0.3vw", letterSpacing: "0.1em" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "clamp(4px, 0.5vw, 8px)" }}>
+                  <span style={{ fontSize: "clamp(11px, 0.8vw, 14px)", color: "rgba(245,240,232,0.6)" }}>{p.services}</span>
+                  <span className="card-reveal" style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(10px, 0.7vw, 13px)", fontWeight: 600, color: p.accent, display: "flex", alignItems: "center", gap: "clamp(3px, 0.3vw, 6px)", letterSpacing: "0.1em" }}>
                     {p.result} <ArrowUpRight size={12} />
                   </span>
                 </div>
@@ -117,11 +117,11 @@ export default function Work() {
 
         {/* Bottom CTA */}
         <div style={{ marginTop: "6vh", textAlign: "center" }}>
-          <p style={{ fontSize: "0.8vw", color: "var(--cream-dim)", marginBottom: "3vh" }}>Curious what we can do for your brand?</p>
+          <p style={{ fontSize: "clamp(13px, 0.8vw, 16px)", color: "var(--cream-dim)", marginBottom: "3vh" }}>Curious what we can do for your brand?</p>
           <button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
             data-cursor="magnetic"
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.8vw", background: "transparent", color: "var(--gold)", fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "0.7vw", letterSpacing: "0.15em", textTransform: "uppercase", padding: "2vh 2.5vw", borderRadius: "100vw", border: "1px solid rgba(201,168,76,0.3)", cursor: "none", transition: "background 0.4s,border-color 0.4s" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "clamp(6px, 0.8vw, 12px)", background: "transparent", color: "var(--gold)", fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "clamp(11px, 0.7vw, 13px)", letterSpacing: "0.15em", textTransform: "uppercase", padding: "clamp(12px, 2vh, 18px) clamp(18px, 2.5vw, 32px)", borderRadius: "100vw", border: "1px solid rgba(201,168,76,0.3)", cursor: "none", transition: "background 0.4s,border-color 0.4s" }}
             onMouseEnter={e => { e.currentTarget.style.background = "rgba(201,168,76,0.07)"; e.currentTarget.style.borderColor = "var(--gold)"; }}
             onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.3)"; }}
           >

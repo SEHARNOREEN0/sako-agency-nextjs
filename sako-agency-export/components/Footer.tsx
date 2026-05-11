@@ -47,8 +47,8 @@ export default function Footer() {
       </div>
 
       {/* Main footer grid */}
-      <div className="container" style={{ padding: "80px 60px 60px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr 1fr", gap: "48px", marginBottom: "64px" }}>
+      <div className="container" style={{ padding: "clamp(40px, 80px, 80px) clamp(16px, 60px, 60px) clamp(32px, 60px, 60px)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 160px), 1fr))", gap: "clamp(24px, 48px, 48px)", marginBottom: "clamp(32px, 64px, 64px)" }}>
           {/* Brand col */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{ borderTop: "1px solid rgba(201,168,76,0.15)", paddingTop: "32px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
+        <div style={{ borderTop: "1px solid rgba(201,168,76,0.15)", paddingTop: "clamp(20px, 32px, 32px)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
           <span style={{ fontSize: "12px", color: "rgba(0,0,0,0.4)" }}>© 2024–2026 SAKO Agency. All rights reserved.</span>
           <div style={{ display: "flex", gap: "24px" }}>
             {["Privacy Policy", "Terms of Service"].map(l => (

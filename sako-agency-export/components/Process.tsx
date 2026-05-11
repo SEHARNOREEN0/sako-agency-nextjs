@@ -35,7 +35,7 @@ export default function Process() {
       <div className="container section-pad">
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "8vh" }}>
           <span className="eyebrow" style={{ display: "block", marginBottom: "3vh" }}>— The Process</span>
-          <h2 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(2.5rem,6vw,5.5rem)", fontWeight: 300, lineHeight: 1.05, maxWidth: "50vw" }}>
+          <h2 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(2.5rem,6vw,5.5rem)", fontWeight: 300, lineHeight: 1.05, maxWidth: "min(90vw, 700px)" }}>
             Four steps. Zero{" "}
             <em style={{ background: "linear-gradient(135deg,#e8c56a,#c9a84c,#8b6914)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               guesswork.
@@ -50,12 +50,12 @@ export default function Process() {
             style={{ position: "absolute", top: "0.6vh", left: "0.5vw", right: "0.5vw", height: "1px", background: "linear-gradient(90deg,transparent,rgba(201,168,76,0.4) 20%,rgba(201,168,76,0.4) 80%,transparent)", transformOrigin: "left" }}
           />
 
-          <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(15vw,1fr))", gap: "2vw" }}>
+          <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%, 200px),1fr))", gap: "clamp(16px, 2vw, 24px)" }}>
             {steps.map((s, i) => (
               <div
                 key={s.n}
                 className="process-item"
-                style={{ padding: "0 2vw 6vh 0", position: "relative", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}
+                style={{ padding: "0 clamp(8px, 2vw, 24px) 6vh 0", position: "relative", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}
                 onMouseEnter={e => { const dot = e.currentTarget.querySelector(".process-dot") as HTMLElement; if (dot) { dot.style.background = "var(--gold)"; dot.style.transform = "scale(1.6)"; } }}
                 onMouseLeave={e => { const dot = e.currentTarget.querySelector(".process-dot") as HTMLElement; if (dot) { dot.style.background = "var(--black)"; dot.style.transform = "scale(1)"; } }}
               >
@@ -66,10 +66,10 @@ export default function Process() {
                 <div style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(3rem,5vw,4.5rem)", fontWeight: 300, lineHeight: 1, background: "linear-gradient(135deg,#e8c56a,#c9a84c,#8b6914)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", marginBottom: "2vh" }}>{s.n}</div>
 
                 <h3 style={{ fontFamily: "'Cormorant',serif", fontSize: "clamp(20px, 1.8vw, 36px)", fontWeight: 400, marginBottom: "1.5vh" }}>{s.title}</h3>
-                <p style={{ fontSize: "0.9vw", color: "var(--cream-dim)", lineHeight: 1.8, marginBottom: "3vh" }}>{s.desc}</p>
+                <p style={{ fontSize: "clamp(13px, 0.9vw, 16px)", color: "var(--cream-dim)", lineHeight: 1.8, marginBottom: "3vh" }}>{s.desc}</p>
 
                 {/* Duration badge */}
-                <span style={{ display: "inline-block", textAlign: "center", minWidth: "6vw", fontFamily: "'Syne',sans-serif", fontSize: "0.6vw", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.5)", border: "1px solid rgba(201,168,76,0.2)", padding: "0.6vh 1.2vw", borderRadius: "100vw" }}>{s.duration}</span>
+                <span style={{ display: "inline-block", textAlign: "center", minWidth: "clamp(60px, 6vw, 80px)", fontFamily: "'Syne',sans-serif", fontSize: "clamp(9px, 0.6vw, 11px)", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,0.5)", border: "1px solid rgba(201,168,76,0.2)", padding: "clamp(4px, 0.6vh, 8px) clamp(10px, 1.2vw, 16px)", borderRadius: "100vw" }}>{s.duration}</span>
               </div>
             ))}
           </div>

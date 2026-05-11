@@ -42,7 +42,7 @@ const CardNav = ({
     const navEl = navRef.current;
     if (!navEl) return 300;
 
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const isMobile = window.matchMedia("(max-width: 900px)").matches;
     if (isMobile) {
       const contentEl = navEl.querySelector(".card-nav-content") as HTMLElement;
       if (contentEl) {
@@ -158,8 +158,12 @@ const CardNav = ({
   const handleNav = (href: string) => {
     toggleMenu();
     setTimeout(() => {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      if (href.startsWith("#")) {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+      window.open(href, "_blank", "noopener,noreferrer");
     }, 400); // Wait for menu to close before scrolling
   };
 
@@ -174,6 +178,12 @@ const CardNav = ({
           <div
             className={`hamburger-menu ${isHamburgerOpen ? "open" : ""}`}
             onClick={toggleMenu}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleMenu();
+              }
+            }}
             role="button"
             aria-label={isExpanded ? "Close menu" : "Open menu"}
             tabIndex={0}

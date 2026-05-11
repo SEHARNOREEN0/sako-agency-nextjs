@@ -110,7 +110,7 @@ export default function Team() {
           <h2 style={headerStyles.title}>
             Meet the <em style={headerStyles.gradientText}>studio.</em>
           </h2>
-          <p style={{ maxWidth: "30vw", margin: "2vh auto 0", fontSize: "clamp(0.9rem, 1vw, 1.1rem)", lineHeight: 1.6, color: "var(--cream-dim)" }}>
+          <p style={{ maxWidth: "min(90vw, 500px)", margin: "2vh auto 0", fontSize: "clamp(0.9rem, 1vw, 1.1rem)", lineHeight: 1.6, color: "var(--cream-dim)" }}>
             A small, senior team. No middlemen — direct access to the people building your future.
           </p>
         </header>
@@ -120,8 +120,8 @@ export default function Team() {
           className="team-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(22vw, 1fr))",
-            gap: "2.5vw"
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+            gap: "clamp(16px, 2.5vw, 32px)"
           }}
         >
           {TEAM_DATA.map((member) => (

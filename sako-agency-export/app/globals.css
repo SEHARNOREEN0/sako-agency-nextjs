@@ -415,7 +415,7 @@ body.hovering .cursor-dot {
 
   .container-wide,
   .container {
-    padding: 0 6vw;
+    padding: 0 16px;
   }
 
   .section-pad {
